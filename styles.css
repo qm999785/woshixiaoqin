@@ -5,6 +5,17 @@
     box-sizing: border-box;
 }
 
+/* 图片悬停效果 */
+img {
+    transition: all 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -35,7 +46,7 @@ body {
 }
 
 .logo a {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     color: #333;
     text-decoration: none;
@@ -47,13 +58,13 @@ body {
 }
 
 .nav-links li {
-    margin-left: 20px;
+    margin-left: 40px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #333;
-    font-size: 16px;
+    font-size: 20px;
     transition: color 0.3s;
 }
 
@@ -61,10 +72,16 @@ body {
     color: #4CAF50;
 }
 
+.nav-links a:active,
+.nav-links a.active {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
 .cart a {
     text-decoration: none;
     color: #333;
-    font-size: 16px;
+    font-size: 20px;
     transition: color 0.3s;
 }
 
@@ -102,6 +119,9 @@ body {
     height: 100%;
     opacity: 0;
     transition: opacity 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-slide.active {
@@ -110,8 +130,8 @@ body {
 
 .hero-banner {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
 }
 
 .hero::before {
@@ -164,17 +184,33 @@ body {
 
 .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 15px 30px;
     background-color: #4CAF50;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 18px;
     transition: background-color 0.3s;
+    animation: bounce 2s infinite;
 }
 
 .btn:hover {
     background-color: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 /* 品牌背景 */
@@ -187,6 +223,8 @@ body {
     margin-bottom: 40px;
     text-align: center;
     color: #333;
+    font-weight: 700;
+    font-family: Arial, sans-serif;
 }
 
 .about-content {
@@ -204,6 +242,24 @@ body {
     margin-bottom: 20px;
     font-size: 16px;
     color: #666;
+}
+
+section#about > div.container > div.about-content > div.about-text > p:nth-child(2) {
+    font-weight: 500;
+    font-size: 28px;
+    text-align: justify;
+}
+
+section#about > div.container > div.about-content > div.about-text > p:nth-child(3) {
+    font-weight: 500;
+    font-size: 28px;
+    text-align: justify;
+}
+
+section#about > div.container > div.about-content > div.about-text > p:nth-child(1) {
+    font-weight: 500;
+    font-size: 28px;
+    text-align: justify;
 }
 
 .about-image {
@@ -272,6 +328,28 @@ body {
 
 .btn-sm:hover {
     background-color: #45a049;
+    position: relative;
+}
+
+.btn-sm:hover::after {
+    content: "🐾";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 20px;
+    animation: paw-tap 0.5s ease-in-out;
+}
+
+@keyframes paw-tap {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(10deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
 }
 
 /* 商品展示 */
@@ -317,6 +395,10 @@ body {
     font-size: 14px;
     margin-bottom: 15px;
     color: #666;
+}
+
+section.products-page > div.container > div.products-grid > div.product-item:nth-child(4) > p {
+    font-size: 14px;
 }
 
 .price {
@@ -455,7 +537,7 @@ footer {
 }
 
 .footer-info h3 {
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 20px;
     color: #333;
 }
@@ -466,8 +548,14 @@ footer {
     color: #666;
 }
 
-.footer-links h4 {
+footer > div.container > div.footer-content > div.footer-info > p:nth-child(2),
+footer > div.container > div.footer-content > div.footer-info > p:nth-child(3),
+footer > div.container > div.footer-content > div.footer-info > p:nth-child(4) {
     font-size: 16px;
+}
+
+.footer-links h4 {
+    font-size: 24px;
     margin-bottom: 20px;
     color: #333;
 }
@@ -483,7 +571,7 @@ footer {
 .footer-links a {
     text-decoration: none;
     color: #666;
-    font-size: 14px;
+    font-size: 16px;
     transition: color 0.3s;
 }
 
@@ -492,7 +580,7 @@ footer {
 }
 
 .footer-social h4 {
-    font-size: 16px;
+    font-size: 24px;
     margin-bottom: 20px;
     color: #333;
 }
@@ -508,7 +596,7 @@ footer {
 .footer-social a {
     text-decoration: none;
     color: #666;
-    font-size: 14px;
+    font-size: 16px;
     transition: color 0.3s;
 }
 
