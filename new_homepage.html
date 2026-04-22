@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爪爪零食 | 天然宠物零食品牌</title>
+    <!-- Font Awesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #ffffff;
+            color: #3a3a3a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 头部导航 */
+        .header {
+            border-bottom: 1px solid #f0e8e0;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #e8824a;
+        }
+
+        .logo i {
+            font-size: 28px;
+            color: #7fb285;
+        }
+
+        .nav {
+            display: flex;
+            gap: 36px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #5a5a5a;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover, .nav a.active {
+            color: #e8824a;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 22px;
+            color: #5a5a5a;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .cart-icon:hover {
+            color: #e8824a;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: #e8824a;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 20px;
+            min-width: 18px;
+            text-align: center;
+        }
+
+        /* 按钮 */
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: #e8824a;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d4733e;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(232, 130, 74, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #e8824a;
+            border: 1.5px solid #e8824a;
+        }
+
+        .btn-outline:hover {
+            background: #fff5ed;
+        }
+
+        /* 品牌故事区 */
+        .brand-story {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            padding: 80px 0;
+        }
+
+        .brand-story-content {
+            flex: 1;
+        }
+
+        .brand-story-content h2 {
+            font-size: 32px;
+            color: #3a3a3a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-story-content h2 i {
+            color: #7fb285;
+            margin-right: 12px;
+            font-size: 28px;
+        }
+
+        .brand-story-content p {
+            color: #6a6a6a;
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .brand-story-image {
+            flex: 1;
+            background: linear-gradient(135deg, #fef4e8 0%, #f0f6f1 100%);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .brand-story-image .bone-icon {
+            font-size: 120px;
+            color: #e8824a;
+            margin-bottom: 16px;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        .brand-story-image .fish-icon {
+            font-size: 100px;
+            color: #7fb285;
+            margin-left: 20px;
+            display: inline-block;
+            animation: pulse 2s infinite 0.5s;
+        }
+
+        .brand-story-image p {
+            color: #5a5a5a;
+            font-style: italic;
+            font-size: 18px;
+            margin-top: 24px;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* 区块标题 */
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 28px;
+            padding: 20px 0;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            color: #3a3a3a;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-header h2 i {
+            color: #7fb285;
+            margin-right: 8px;
+        }
+
+        .section-header a {
+            color: #e8824a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .section-header a i {
+            font-size: 12px;
+            margin-left: 4px;
+        }
+
+        /* 商品卡片网格 */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid #f0e8e0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+            border-color: #e8d5c5;
+        }
+
+        .product-image {
+            aspect-ratio: 1;
+            background: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+
+        .product-image i {
+            font-size: 64px;
+            color: #e8824a;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #7fb285;
+            color: white;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: #9a9a9a;
+            margin-bottom: 6px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: #7a7a7a;
+            margin-bottom: 12px;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #e8824a;
+        }
+
+        .product-price small {
+            font-size: 13px;
+            font-weight: 400;
+            color: #9a9a9a;
+            margin-left: 4px;
+        }
+
+        .btn-cart {
+            background: #7fb285;
+            color: white;
+            padding: 8px 16px;
+            font-size: 13px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-cart:hover {
+            background: #6a9e70;
+        }
+
+        /* 品牌动态 */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 20px;
+            margin-bottom: 48px;
+        }
+
+        .news-card {
+            background: #faf7f4;
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.2s;
+        }
+
+        .news-card:hover {
+            background: #fff5ed;
+        }
+
+        .news-date {
+            font-size: 13px;
+            color: #e8824a;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 10px;
+        }
+
+        .news-excerpt {
+            color: #7a7a7a;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .news-link {
+            color: #7fb285;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .news-link i {
+            font-size: 12px;
+            margin-left: 4px;
+        }
+
+        /* 页脚 */
+        .footer {
+            background: #faf7f4;
+            padding: 40px 0 24px;
+            margin-top: 60px;
+            border-top: 1px solid #f0e8e0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1.5fr;
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            color: #3a3a3a;
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #7a7a7a;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a:hover {
+            color: #e8824a;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            margin-top: 24px;
+            border-top: 1px solid #e8ddd4;
+            color: #9a9a9a;
+            font-size: 13px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .social-icons a {
+            color: #7fb285;
+            font-size: 20px;
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            color: #e8824a;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .brand-story {
+                flex-direction: column;
+                padding: 40px 0;
+                text-align: center;
+            }
+            
+            .brand-story-image {
+                padding: 40px 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+            
+            .nav {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-paw"></i>
+                <span>爪爪零食</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="active">首页</a>
+                <a href="#">全部商品</a>
+                <a href="#">品牌故事</a>
+                <a href="#">品牌动态</a>
+            </nav>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main>
+        <!-- 品牌故事 -->
+        <div class="container">
+            <div class="brand-story">
+                <div class="brand-story-content">
+                    <h2><i class="fas fa-heart"></i>源于爱宠之心</h2>
+                    <p>爪爪零食创立于2020年，我们相信每一只宠物都值得被温柔以待。坚持选用天然食材、拒绝人工添加剂，只为给毛孩子带来健康美味的好零食。让每一次投喂都成为爱的表达。</p>
+                    <p>与宠物营养师合作研发，科学配比，守护宠物的每一口幸福。目前，爪爪零食已服务超过10万养宠家庭，成为他们信赖的零食伙伴。</p>
+                    <a href="#" class="btn btn-outline" style="margin-top: 24px;">了解我们的故事 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="brand-story-image">
+                    <i class="fas fa-bone bone-icon"></i>
+                    <i class="fas fa-fish fish-icon"></i>
+                    <p>天然 · 健康 · 美味</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 精选推荐 -->
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> 精选推荐</h2>
+                <a href="#">查看更多 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-grid">
+                <!-- 商品卡片 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">热销</span>
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <div class="product-category">狗用 · 磨牙洁齿</div>
+                    <div class="product-name">狗狗磨牙棒</div>
+                    <div class="product-desc">天然牛皮+鸡肉缠绕，清洁牙齿</div>
+                    <div class="product-footer">
+                        <span class="product-price">¥39</span>
+                        <button class="btn-cart">加购</button>
+                    </div>
+                </div>
+                <!-- 商品卡片 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">新品</span>
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <div class="product-category">猫用 · 冻干零食</div>
+                    <div class="product-name">多春鱼冻干</div>
+                    <div class="product-desc">整条多春鱼，高蛋白美毛</div>
+                    <div class="product-footer">
+                        <span class="product-price">¥45</span>
+                        <button class="btn-cart">加购</button>
+                    </div>
+                </div>
+                <!-- 商品卡片 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-dog"></i>
+                    </div>
+                    <div class="product-category">狗用 · 肉干</div>
+                    <div class="product-name">鸭肉缠绕红薯</div>
+                    <div class="product-desc">低脂鸭肉+天然红薯，营养均衡</div>
+                    <div class="product-footer">
+                        <span class="product-price">¥35</span>
+                        <button class="btn-cart">加购</button>
+                    </div>
+                </div>
+                <!-- 商品卡片 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-badge">爆款</span>
+                        <i class="fas fa-cat"></i>
+                    </div>
+                    <div class="product-category">猫用 · 猫条</div>
+                    <div class="product-name">金枪鱼猫条</div>
+                    <div class="product-desc">无添加诱食剂，主子最爱</div>
+                    <div class="product-footer">
+                        <span class="product-price">¥29</span>
+                        <button class="btn-cart">加购</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 热门商品 -->
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-fire" style="color: #e8824a;"></i> 热门商品</h2>
+                <a href="#">更多热销 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-grid">
+                <!-- 商品卡片 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <div class="product-category">狗用 · 肉干</div>
+                    <div class="product-name">鸡胸肉干</div>
+                    <div class="product-desc">纯鸡胸肉低温烘焙，高蛋白</div>
+                    <div class="product-footer">
+                        <span class="product-price">¥49</span>
+                        <button class="btn-cart">加购</button>
+                    </div>
+                </div>
+                <!-- 商品卡片 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-shrimp"></i>
+                    </div>
+                    <div class="product-category">猫用 · 冻干</div>
+                    <div class="product-name">南极磷虾冻干</div>
+                    <div class="product-desc">天然磷虾，美毛护肤</div>
+                    <div class="product-footer">
+                        <span class="product-price">¥35</span>
+                        <button class="btn-cart">加购</button>
+                    </div>
+                </div>
+                <!-- 商品卡片 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-cheese"></i>
+                    </div>
+                    <div class="product-category">通用 · 奶酪</div>
+                    <div class="product-name">宠物奶酪粒</div>
+                    <div class="product-desc">高钙低盐，训练奖励必备</div>
+                    <div class="product-footer">
+                        <span class="product-price">¥32</span>
+                        <button class="btn-cart">加购</button>
+                    </div>
+                </div>
+                <!-- 商品卡片 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="product-category">通用 · 功能零食</div>
+                    <div class="product-name">益生菌洁齿骨</div>
+                    <div class="product-desc">添加益生菌，调理肠胃</div>
+                    <div class="product-footer">
+                        <span class="product-price">¥42</span>
+                        <button class="btn-cart">加购</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 品牌动态 -->
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-newspaper"></i> 品牌动态</h2>
+                <a href="#">全部动态 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">2026-04-15</div>
+                    <div class="news-title">🐱 新品上市：野生三文鱼冻干</div>
+                    <div class="news-excerpt">严选阿拉斯加野生三文鱼，富含Omega-3，美毛护心。新品首发价8折，快来给主子尝鲜吧！</div>
+                    <a href="#" class="news-link">了解详情 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026-04-10</div>
+                    <div class="news-title">🎁 四月宠爱季 · 满赠活动</div>
+                    <div class="news-excerpt">单笔实付满199元，送宠物零食礼包一份。数量有限，先到先得！</div>
+                    <a href="#" class="news-link">了解详情 <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">2026-04-05</div>
+                    <div class="news-title">📝 科学喂养 | 如何挑选宠物零食</div>
+                    <div class="news-excerpt">宠物营养师教你三招选对零食，避开添加剂陷阱，守护毛孩子健康。</div>
+                    <a href="#" class="news-link">阅读全文 <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>关于爪爪</h4>
+                    <p>爪爪零食，专注天然健康宠物零食。让每一次投喂都充满爱。</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-xiaohongshu"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>购物指南</h4>
+                    <a href="#">配送说明</a>
+                    <a href="#">退换货政策</a>
+                    <a href="#">会员权益</a>
+                </div>
+                <div class="footer-section">
+                    <h4>服务支持</h4>
+                    <a href="#">联系我们</a>
+                    <a href="#">常见问题</a>
+                    <a href="#">宠物营养咨询</a>
+                </div>
+                <div class="footer-section">
+                    <h4>联系方式</h4>
+                    <p><i class="fas fa-phone"></i> 400-888-6666</p>
+                    <p><i class="fas fa-envelope"></i> hello@pawpaw.com</p>
+                    <p><i class="fas fa-clock"></i> 周一至周日 9:00-21:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 爪爪零食 PawPaw Treats. 用心宠爱每一只毛孩子 💚</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 导航栏激活状态
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // 购物车图标点击效果
+            const cartIcon = document.querySelector('.cart-icon');
+            cartIcon.addEventListener('click', function() {
+                alert('购物车功能开发中，敬请期待！');
+            });
+
+            // 平滑滚动效果
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

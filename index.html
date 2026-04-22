@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爪爪零食 - 为您的爱宠提供健康美味的零食</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">爪爪零食</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html">商品列表</a></li>
+                    <li><a href="#about">品牌背景</a></li>
+                    <li><a href="#news">品牌动态</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+                <div class="cart">
+                    <a href="#">购物车 (0)</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero区域 -->
+    <section class="hero">
+        <div class="carousel">
+            <div class="carousel-slide active">
+                <img src="图片/微信图片_20260421114518_700_46.png" alt="宠物快乐时光" class="hero-banner">
+            </div>
+            <div class="carousel-slide">
+                <img src="图片/微信图片_20260421143224_701_46.jpg" alt="宠物快乐时光" class="hero-banner">
+            </div>
+            <div class="carousel-slide">
+                <img src="图片/微信图片_20260421154841_704_46.jpg" alt="宠物快乐时光" class="hero-banner">
+            </div>
+        </div>
+        <div class="carousel-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+        </div>
+        <div class="container">
+            <h1>为您的爱宠提供健康美味的零食</h1>
+            <p>天然原料，营养均衡，让您的宠物享受美味的同时保持健康</p>
+            <a href="products.html" class="btn">立即购买</a>
+        </div>
+    </section>
+    
+    <script>
+        // 轮播功能
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            // 隐藏所有幻灯片
+            slides.forEach(slide => slide.classList.remove('active'));
+            // 移除所有指示器的active类
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            // 显示当前幻灯片
+            slides[index].classList.add('active');
+            // 激活当前指示器
+            indicators[index].classList.add('active');
+            // 更新当前幻灯片索引
+            currentSlide = index;
+        }
+        
+        // 自动轮播
+        function nextSlide() {
+            let next = currentSlide + 1;
+            if (next >= slides.length) {
+                next = 0;
+            }
+            showSlide(next);
+        }
+        
+        // 设置轮播间隔
+        setInterval(nextSlide, 5000);
+        
+        // 点击指示器切换幻灯片
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+    </script>
+
+    <!-- 品牌背景 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>品牌背景</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>我们是一家专注于爪爪零食研发和生产的品牌，致力于为宠物提供健康、美味、营养的零食产品。</p>
+                    <p>我们的团队由专业的宠物营养专家和食品工程师组成，采用天然原料，严格控制生产过程，确保每一款产品都符合高标准的质量要求。</p>
+                    <p>我们相信，只有健康的零食才能让宠物更加快乐地成长，因此我们始终坚持以宠物的健康为首要考虑因素。</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=pet%20treats%20brand%20background%20with%20natural%20ingredients&image_size=landscape_16_9" alt="品牌背景">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌动态 -->
+    <section id="news" class="news">
+        <div class="container">
+            <h2>品牌动态</h2>
+            <div class="news-grid">
+                <div class="news-item">
+                    <img src="图片/17.png" alt="新品上市">
+                    <h3>新品上市：鸡肉味猫罐头</h3>
+                    <p>我们最新推出的鸡肉味猫罐头，采用优质鸡胸肉制作，营养丰富，口感美味，深受猫咪喜爱。</p>
+                    <a href="#" class="btn-sm">了解更多</a>
+                </div>
+                <div class="news-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=pet%20health%20seminar&image_size=square" alt="健康讲座">
+                    <h3>宠物健康讲座：如何选择合适的零食</h3>
+                    <p>我们将举办一场关于宠物健康的讲座，邀请专业兽医为大家讲解如何选择适合宠物的零食。</p>
+                    <a href="#" class="btn-sm">了解更多</a>
+                </div>
+                <div class="news-item">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=pet%20charity%20event&image_size=square" alt="慈善活动">
+                    <h3>慈善活动：为流浪宠物捐赠零食</h3>
+                    <p>我们将开展一项慈善活动，为流浪宠物捐赠零食，让更多的宠物感受到关爱。</p>
+                    <a href="#" class="btn-sm">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 商品展示 -->
+    <section class="products">
+        <div class="container">
+            <h2>爪爪零食展示</h2>
+            <div class="products-grid">
+                <div class="product-item">
+                    <img src="图片/12.png" alt="蔬菜鸡肉干">
+                    <h3>蔬菜鸡肉干</h3>
+                    <p>蔬菜与鸡肉的完美结合，营养均衡，口感美味</p>
+                    <div class="price">¥29.90</div>
+                    <a href="products.html" class="btn-sm">查看详情</a>
+                </div>
+                <div class="product-item">
+                    <img src="图片/14.png" alt="鱼肉味猫零食">
+                    <h3>爪爪猫罐头</h3>
+                    <p>精选海鲜配方，富含蛋白质，猫咪挚爱</p>
+                    <div class="price">¥39.90</div>
+                    <a href="products.html" class="btn-sm">查看详情</a>
+                </div>
+                <div class="product-item">
+                    <img src="图片/10.png" alt="蔬菜味宠物零食">
+                    <h3>膳食纤维包</h3>
+                    <p>多种蔬菜精华，促进消化，维护宠物健康</p>
+                    <div class="price">¥24.90</div>
+                    <a href="products.html" class="btn-sm">查看详情</a>
+                </div>
+                <div class="product-item">
+                    <img src="图片/图层 9.png" alt="牛肉味宠物零食">
+                    <h3>牛肉干磨牙棒</h3>
+                    <p>真材实料牛肉干，帮助宠物清洁牙齿，健康又美味</p>
+                    <div class="price">¥34.90</div>
+                    <a href="products.html" class="btn-sm">查看详情</a>
+                </div>
+            </div>
+            <div class="view-more">
+                <a href="products.html" class="btn">查看全部商品</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>爪爪零食</h3>
+                    <p>为您的爱宠提供健康美味的零食</p>
+                    <p>联系电话：400-123-4567</p>
+                    <p>邮箱：info@petfood.com</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="products.html">商品列表</a></li>
+                        <li><a href="#about">品牌背景</a></li>
+                        <li><a href="#news">品牌动态</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信</a></li>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">抖音</a></li>
+                        <li><a href="#">小红书</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 爪爪零食. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
